@@ -1,0 +1,285 @@
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+body {
+    overflow-x: hidden;
+    background: #f8f9fa;
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+
+.navbar {
+    background: #0056b3 !important;
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+
+.sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 220px;
+    height: calc(100% - 56px);
+    background: #fff;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.sidebar .nav-link {
+    transition: all 0.2s ease;
+}
+
+.sidebar .nav-link.active {
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.sidebar .nav-link:hover {
+    background: #f0f0f0;
+    border-radius: 8px;
+}
+
+.sidebar i {
+    font-size: 1rem;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+    margin-top: 56px;
+    overflow-x: auto;
+    min-height: 100vh;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+.card {
+    border-radius: 12px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   TIMELINE
+   ============================================ */
+
+.timeline {
+    position: relative;
+    padding-left: 40px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #dee2e6;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -29px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #dee2e6;
+}
+
+.timeline-content {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 3px solid #0d6efd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   INCIDENT DETAIL STYLES
+   ============================================ */
+
+/* Detail Grid Layout */
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.detail-box {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.detail-header {
+    padding: 12px 15px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detail-header.warning {
+    background-color: #dc3545;
+}
+
+.detail-header.info {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.detail-header.success {
+    background-color: #28a745;
+}
+
+.detail-content {
+    padding: 15px;
+    background-color: #fff;
+}
+
+/* Detail Table */
+.detail-table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.detail-table td {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-table td:first-child {
+    width: 140px;
+    font-weight: 600;
+    color: #495057;
+}
+
+.detail-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Steps List */
+.steps-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.steps-list li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* Impact Box */
+.impact-box {
+    background-color: #d1ecf1;
+    border-left: 4px solid #0dcaf0;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 4px;
+}
+
+.impact-box h6 {
+    margin: 0 0 10px 0;
+    color: #0c5460;
+    font-weight: bold;
+}
+
+.impact-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.impact-list li {
+    margin-bottom: 5px;
+}
+
+/* Warning Box */
+.warning-box {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 4px;
+}
+
+.warning-box h6 {
+    margin: 0 0 10px 0;
+    color: #856404;
+    font-weight: bold;
+}
+
+/* Danger Box */
+.danger-box {
+    background-color: #f8d7da;
+    border-left: 4px solid #dc3545;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 4px;
+}
+
+.danger-box h6 {
+    margin: 0 0 10px 0;
+    color: #721c24;
+    font-weight: bold;
+}
+
+/* Solution Box */
+.solution-box {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    /* Incident Detail Responsive */
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+}

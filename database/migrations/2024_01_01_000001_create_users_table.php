@@ -21,11 +21,10 @@ return new class extends Migration {
             $table->timestamps();
         });
 
-        // Buat user admin default (username: Admin2, password: Samanta123)
-        // Sesuai kredensial di db.php lama
+        // Buat user admin default (username: admin, password: password)
         DB::table('users')->insert([
-            'username'      => 'Admin2',
-            'password_hash' => Hash::make('Samanta123'),
+            'username'      => 'admin',
+            'password_hash' => Hash::make('password'),
             'full_name'     => 'Administrator',
             'role'          => 'admin',
             'created_at'    => now(),

@@ -97,8 +97,15 @@ Sistem ini sangat bergantung pada *background jobs* dan *scheduler* untuk melaku
 
 ## 👥 Pengguna Default (Testing)
 
-Saat menjalankan *seeder*, beberapa pengguna pengujian dibuat secara default:
-- Terdapat akun **Admin**, **Operator**, dan **Viewer** (sesuaikan dengan instruksi pada seeder untuk melihat kredensial uji coba).
+Setelah menjalankan migrasi dan seeder (`php artisan migrate --seed`), akun pengujian berikut dibuat secara otomatis:
+
+| Role | Username | Password Default | Akses |
+|---|---|---|---|
+| **Admin** | `admin` | `password` | Akses penuh (kelola website, manajemen user, penanganan insiden, pengaturan) |
+| **Operator** | `operator` | `password` | Akses operasional (monitoring website, penanganan insiden, ekspor laporan) |
+| **Viewer** | `viewer` | `password` | Hanya dapat melihat ringkasan dashboard dan laporan |
+
+> ⚠️ **Catatan Keamanan:** Untuk penggunaan di server *production*, segera ubah password akun default ini melalui menu profil/settings demi keamanan sistem.
 
 ## 📄 Lisensi
 

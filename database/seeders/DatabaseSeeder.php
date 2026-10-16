@@ -13,17 +13,28 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      *
-     * Catatan: User admin default (username: Admin2, password: Samanta123)
+     * Catatan: User admin default (username: admin, password: password)
      * sudah dibuat secara otomatis via migration 2024_01_01_000001_create_users_table.php.
-     *
-     * Seeder ini bisa dipakai untuk mengisi data pengujian tambahan.
      */
     public function run(): void
     {
-        // Buat 2 user operator dan 2 viewer untuk data dummy (hanya di dev/testing)
-        if (app()->isLocal()) {
-            User::factory()->operator()->count(2)->create();
-            User::factory()->viewer()->count(2)->create();
-        }
+        // Buat akun testing operator dan viewer dengan password 'password'
+        User::firstOrCreate(
+            ['username' => 'operator'],
+            [
+                'password_hash' => \Illuminate\Support\Facades\Hash::make('password'),
+                'full_name'     => 'Petugas Operator',
+                'role'          => 'operator',
+            ]
+        );
+
+        User::firstOrCreate(
+            ['username' => 'viewer'],
+            [
+                'password_hash' => \Illuminate\Support\Facades\Hash::make('password'),
+                'full_name'     => 'Petugas Viewer',
+                'role'          => 'viewer',
+            ]
+        );
     }
 }
